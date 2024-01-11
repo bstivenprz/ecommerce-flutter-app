@@ -13,7 +13,7 @@ import '../../widgets/input_form_button.dart';
 
 class ProductDetailsView extends StatefulWidget {
   final Product product;
-  const ProductDetailsView({Key? key, required this.product}) : super(key: key);
+  const ProductDetailsView({super.key, required this.product});
 
   @override
   State<ProductDetailsView> createState() => _ProductDetailsViewState();
@@ -211,7 +211,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                   // print("test");
                   Navigator.pop(context);
                 },
-                titleText: "Add to Cart",
+                titleText: "Agregar al carrito",
               ),
             ),
             const SizedBox(
@@ -229,7 +229,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                     )
                   ]);
                 },
-                titleText: "Buy",
+                titleText: "Comprar ahora",
               ),
             ),
           ],

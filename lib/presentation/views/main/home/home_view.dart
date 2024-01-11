@@ -15,7 +15,7 @@ import '../../../widgets/input_form_button.dart';
 import '../../../widgets/product_card.dart';
 
 class HomeView extends StatefulWidget {
-  const HomeView({Key? key}) : super(key: key);
+  const HomeView({super.key});
 
   @override
   State<HomeView> createState() => _HomeViewState();
@@ -30,9 +30,7 @@ class _HomeViewState extends State<HomeView> {
     double scrollPercentage = 0.7;
     if (currentScroll > (maxScroll * scrollPercentage)) {
       if (context.read<ProductBloc>().state is ProductLoaded) {
-        context
-            .read<ProductBloc>()
-            .add(const GetMoreProducts());
+        context.read<ProductBloc>().add(const GetMoreProducts());
       }
     }
   }
@@ -105,12 +103,12 @@ class _HomeViewState extends State<HomeView> {
                           height: 8,
                         ),
                         Text(
-                          "Welcome,",
+                          "Bienvenido,",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 36),
                         ),
                         Text(
-                          "E-Shop mobile store",
+                          "Luegopago Marketplace",
                           style: TextStyle(
                               fontWeight: FontWeight.normal, fontSize: 22),
                         ),
@@ -180,7 +178,7 @@ class _HomeViewState extends State<HomeView> {
                                   )
                                 : null,
                             border: const OutlineInputBorder(),
-                            hintText: "Search Product",
+                            hintText: "Buscar productos...",
                             fillColor: Colors.grey.shade100,
                             filled: true,
                             focusedBorder: OutlineInputBorder(

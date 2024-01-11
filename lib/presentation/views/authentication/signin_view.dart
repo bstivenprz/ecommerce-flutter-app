@@ -15,7 +15,7 @@ import '../../widgets/input_form_button.dart';
 import '../../widgets/input_text_form_field.dart';
 
 class SignInView extends StatefulWidget {
-  const SignInView({Key? key}) : super(key: key);
+  const SignInView({super.key});
 
   @override
   State<SignInView> createState() => _SignInViewState();
@@ -64,16 +64,16 @@ class _SignInViewState extends State<SignInView> {
                     height: 50,
                   ),
                   SizedBox(
-                      height: 80,
+                      height: 60,
                       child: Image.asset(
                         kAppLogo,
-                        color: Colors.black,
+                        // color: Colors.black,
                       )),
                   const SizedBox(
                     height: 20,
                   ),
                   const Text(
-                    "Please enter your e-mail address and password to sign-in",
+                    "Porfavor, ingresa tu correo electrónico y contraseña para acceder a tu cuenta.",
                     style: TextStyle(fontSize: 16, color: Colors.black54),
                     textAlign: TextAlign.center,
                   ),
@@ -86,7 +86,7 @@ class _SignInViewState extends State<SignInView> {
                   InputTextFormField(
                     controller: emailController,
                     textInputAction: TextInputAction.next,
-                    hint: 'Email',
+                    hint: 'Correo electrónico',
                     validation: (String? val) {
                       if (val == null || val.isEmpty) {
                         return 'This field can\'t be empty';
@@ -100,7 +100,7 @@ class _SignInViewState extends State<SignInView> {
                   InputTextFormField(
                     controller: passwordController,
                     textInputAction: TextInputAction.go,
-                    hint: 'Password',
+                    hint: 'Contraseña',
                     isSecureField: true,
                     validation: (String? val) {
                       if (val == null || val.isEmpty) {
@@ -127,7 +127,7 @@ class _SignInViewState extends State<SignInView> {
                         // Navigator.pushNamed(context, AppRouter.forgotPassword);
                       },
                       child: const Text(
-                        'Forgot Password?',
+                        '¿Olvidaste tu contraseña?',
                         style: TextStyle(
                           fontSize: 14,
                         ),
@@ -147,7 +147,7 @@ class _SignInViewState extends State<SignInView> {
                             )));
                       }
                     },
-                    titleText: 'Sign In',
+                    titleText: 'Entrar',
                   ),
                   const SizedBox(
                     height: 10,
@@ -157,7 +157,7 @@ class _SignInViewState extends State<SignInView> {
                     onClick: () {
                       Navigator.of(context).pop();
                     },
-                    titleText: 'Back',
+                    titleText: 'Volver',
                   ),
                   const Spacer(),
                   Padding(
@@ -166,7 +166,7 @@ class _SignInViewState extends State<SignInView> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const Text(
-                          'Don\'t have an account! ',
+                          '¿No tienes una cuenta? ',
                           style: TextStyle(
                             fontSize: 14,
                           ),
@@ -176,7 +176,7 @@ class _SignInViewState extends State<SignInView> {
                             Navigator.pushNamed(context, AppRouter.signUp);
                           },
                           child: const Text(
-                            'Register',
+                            'Registrarme',
                             style: TextStyle(
                               fontSize: 14,
                               color: Colors.black,

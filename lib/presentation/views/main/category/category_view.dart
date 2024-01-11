@@ -5,7 +5,7 @@ import '../../../blocs/category/category_bloc.dart';
 import '../../../widgets/category_card.dart';
 
 class CategoryView extends StatefulWidget {
-  const CategoryView({Key? key}) : super(key: key);
+  const CategoryView({super.key});
 
   @override
   State<CategoryView> createState() => _CategoryViewState();
@@ -45,19 +45,21 @@ class _CategoryViewState extends State<CategoryView> {
                     ),
                     suffixIcon: _textEditingController.text.isNotEmpty
                         ? Padding(
-                      padding: const EdgeInsets.only(right: 8),
-                      child: IconButton(
-                          onPressed: () {
-                            setState(() {
-                              _textEditingController.clear();
-                              context.read<CategoryBloc>().add(const FilterCategories(''));
-                            });
-                          },
-                          icon: const Icon(Icons.clear)),
-                    )
+                            padding: const EdgeInsets.only(right: 8),
+                            child: IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    _textEditingController.clear();
+                                    context
+                                        .read<CategoryBloc>()
+                                        .add(const FilterCategories(''));
+                                  });
+                                },
+                                icon: const Icon(Icons.clear)),
+                          )
                         : null,
                     border: const OutlineInputBorder(),
-                    hintText: "Search Category",
+                    hintText: "Buscar categoría",
                     fillColor: Colors.grey.shade100,
                     filled: true,
                     focusedBorder: OutlineInputBorder(

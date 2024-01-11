@@ -18,7 +18,7 @@ import '../../widgets/outline_label_card.dart';
 
 class OrderCheckoutView extends StatelessWidget {
   final List<CartItem> items;
-  const OrderCheckoutView({Key? key, required this.items}) : super(key: key);
+  const OrderCheckoutView({super.key, required this.items});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class OrderCheckoutView extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.white,
-            title: const Text('Order Checkout'),
+            title: const Text('Checkout'),
           ),
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -57,7 +57,7 @@ class OrderCheckoutView extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 8),
                       child: OutlineLabelCard(
-                        title: 'Delivery Details',
+                        title: 'Dirección',
                         child: BlocBuilder<DeliveryInfoFetchCubit,
                             DeliveryInfoFetchState>(
                           builder: (context, state) {
@@ -92,7 +92,7 @@ class OrderCheckoutView extends StatelessWidget {
                                 padding: const EdgeInsets.only(
                                     top: 20, bottom: 8, left: 4),
                                 child: const Text(
-                                  "Please select delivery information",
+                                  "Dirección de envío...",
                                 ),
                               );
                             }
@@ -120,7 +120,7 @@ class OrderCheckoutView extends StatelessWidget {
                   height: 16,
                 ),
                 OutlineLabelCard(
-                  title: 'Selected Products',
+                  title: 'Productos',
                   child: Padding(
                     padding: const EdgeInsets.only(top: 18, bottom: 8),
                     child: Column(
@@ -179,7 +179,7 @@ class OrderCheckoutView extends StatelessWidget {
                   height: 16,
                 ),
                 OutlineLabelCard(
-                  title: 'Order Summery',
+                  title: 'Resumen de compra',
                   child: Container(
                     height: 120,
                     padding: const EdgeInsets.symmetric(vertical: 8),
@@ -189,21 +189,21 @@ class OrderCheckoutView extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Text("Total Number of Items"),
+                            const Text("Total de productos"),
                             Text("x${items.length}")
                           ],
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Text("Total Price"),
+                            const Text("Sub-total"),
                             Text(
                                 "\$${items.fold(0.0, (previousValue, element) => (element.priceTag.price + previousValue))}")
                           ],
                         ),
                         const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [Text("Delivery Charge"), Text("\$4.99")],
+                          children: [Text("Valor de envío"), Text("\$4.99")],
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -232,7 +232,8 @@ class OrderCheckoutView extends StatelessWidget {
                             .state
                             .selectedDeliveryInformation ==
                         null) {
-                      EasyLoading.showError("Error \nPlease select delivery add your delivery information");
+                      EasyLoading.showError(
+                          "Error \nPlease select delivery add your delivery information");
                     } else {
                       context.read<OrderAddCubit>().addOrder(OrderDetails(
                           id: '',
@@ -252,7 +253,7 @@ class OrderCheckoutView extends StatelessWidget {
                           discount: 0));
                     }
                   },
-                  titleText: 'Confirm',
+                  titleText: 'Pagar',
                 );
               }),
             ),
